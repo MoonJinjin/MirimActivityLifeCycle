@@ -16,13 +16,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i("액티비티 생명주기 : ", "onCreate");
+        Log.i("액티비티 생명주기 : ", "onCreate()");
 
         Button btnCall = findViewById(R.id.btn_call);
         Button btnFinish = findViewById(R.id.btn_finish);
         btnCall.setOnClickListener(btnListener);
         btnFinish.setOnClickListener(btnListener);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("액티비티 생명주기 : ", "onDestroy()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("액티비티 생명주기 : ", "onResume()");
+    }
+
     View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
